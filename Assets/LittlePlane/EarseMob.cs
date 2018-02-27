@@ -15,6 +15,7 @@ public class EarseMob : MonoBehaviour {
 	}
 
     void OnTriggerEnter2D(Collider2D collider) {
+        if (collider == null) return;
         // Debug.Log("=========== is " + collider.tag);
         if (collider.tag == "Mob") {
             Destroy(collider.gameObject);

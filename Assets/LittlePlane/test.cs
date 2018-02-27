@@ -5,22 +5,18 @@ using UnityEngine;
 public class test : MonoBehaviour {
 
     public GameObject bullet;
-    private BulletCeateBehaviorCtrl bulletBhvCtrl;
+    private BulletBehaviorCtrl bulletBhvCtrl;
+    private GameObject bulletBhvMng;
 
     private float fireRate = 0.01f;
     private float nextFire = 0.0f;
     private int curAngle = 0;
     private int nextRange = 30;
 
-    GameObject bulletBhvMng;
+
 	void Start () {
         bulletBhvMng = GameObject.Find("BulletBehaviorManager");
-        if ( bulletBhvMng == null ) {
-            Debug.Log("bulletBhvMng is NULL");
-            return;
-        }
-
-        bulletBhvCtrl = bulletBhvMng.GetComponent<BulletCeateBehaviorCtrl>();
+        bulletBhvCtrl = bulletBhvMng.GetComponent<BulletBehaviorCtrl>();
 
 	}
 
@@ -34,6 +30,7 @@ public class test : MonoBehaviour {
             Vector3 pos_bullet_create = gameObject.transform.position + new Vector3(0, 0.6f, 0);
             // bulletBhvCtrl.ShotBehaviorCircle(gameObject, bullet, 6);
             bulletBhvCtrl.ShotBehaviorCirculor(gameObject, bullet, curAngle);
+            bulletBhvCtrl.ShotBehaviorNormal(gameObject, bullet, gameObject.transform.position + new Vector3(0, -0.6f, 0));
             curAngle += nextRange;
         }
 

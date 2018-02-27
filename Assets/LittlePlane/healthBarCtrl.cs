@@ -16,7 +16,7 @@ public class healthBarCtrl : MonoBehaviour {
 	}
 
     public void changeHealBar(int oriHp, int newHp) {
-        Debug.Log("[length]" + gameObject.transform.localScale);
+        // Debug.Log("[length]" + gameObject.transform.localScale);
         gameObject.transform.localScale = new Vector3((float)(ori_length * newHp / oriHp), gameObject.transform.localScale.y, gameObject.transform.localScale.z);
     }
 }

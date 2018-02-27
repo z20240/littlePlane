@@ -1,0 +1,32 @@
+{
+    "mob_create_freq" : 6,
+    "boss_create_freq" : 10,
+    "mob_bullet_speed" : 1.5,
+    "mob_bullet_offset" : 0.02,
+    "mob_speed_offset" : 0.05,
+    "mob" : {
+        "mob_normal" : {
+            "hp" : 1,
+            "speed" : 0.02
+        },
+        "mob_mid" : {
+            "hp" : 2,
+            "speed" : 0.03,
+            "fireRate" : 1.5
+        },
+        "mob_hard" : {
+            "hp" : 3,
+            "speed" : 0.04,
+            "fireRate" : 1.2
+        },
+        "mob_boss" : 10,
+        "mob_behavior" : [1, 2, 3]
+
+    },
+    "player" : {
+        "fireRate" : 0.2,
+        "hp" : 3,
+        "speed" : 0.1,
+        "bullet_speed" : 3
+    }
+}

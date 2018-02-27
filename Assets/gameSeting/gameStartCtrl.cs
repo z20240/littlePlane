@@ -10,7 +10,7 @@ public class gameStartCtrl : MonoBehaviour {
 	void Start () {
 
         GetComponent<Button>().onClick.AddListener(() => {
-            Debug.Log(gameObject.transform.name);
+            // Debug.Log(gameObject.transform.name);
             SceneManager.LoadScene("littlePlane");
         });
 

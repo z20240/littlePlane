@@ -15,6 +15,7 @@ public class EeraseBullet : MonoBehaviour {
 	}
 
     void OnTriggerEnter2D(Collider2D collider) {
+        if (collider == null) return;
         if (collider.tag == "Bullets") {
             Destroy(collider.gameObject);
         }
