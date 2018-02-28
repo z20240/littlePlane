@@ -18,6 +18,7 @@ public class LocalFile {
 
     public JsonData LoadLocalFile(string path, string fileName) {
         string fpath = System.IO.Path.Combine(path, fileName);
+        Debug.Log("path:" + fpath);
         if (!File.Exists(fpath)) {
             return null;
         }

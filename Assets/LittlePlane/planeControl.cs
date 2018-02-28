@@ -20,24 +20,34 @@ public class planeControl : MonoBehaviour {
     private float plane_speed;
 
     gamePlayManager gpMng;
-    void Start () {
-        nextFire = 0.0f;
+    GameObject gameCfg;
+    JsonData conf;
+    private float time;
 
-        GameObject gameCfg = GameObject.Find("gamePlayManager");
+    void Awake() {
+        gameCfg = GameObject.Find("gamePlayManager");
         gpMng = gameCfg.GetComponent<gamePlayManager>();
-        JsonData conf = gpMng.getGameConfig();
 
-        fireRate = (float)((double)conf["player"]["fireRate"]);
-        max_hp = hp = (int)conf["player"]["hp"];
-        plane_speed = (float)((double)conf["player"]["speed"]);
 
         bulletBhvMng = GameObject.Find("BulletBehaviorManager");
         bulletBhvCtrl = bulletBhvMng.GetComponent<BulletBehaviorCtrl>();
     }
+    void Start () {
+        nextFire = 0.0f;
+
+        conf = gpMng.getGameConfig();
+
+        Debug.Log(conf.ToString());
+        fireRate = (float)((double)conf["player"]["fireRate"]);
+        max_hp = hp = (int)conf["player"]["hp"];
+        plane_speed = (float)((double)conf["player"]["speed"]);
+
+
+    }
 
     // Update is called once per frame
     void Update () {
-
+        time += Time.deltaTime;
         if (Input.GetKey(KeyCode.RightArrow)) {
             gameObject.transform.position += new Vector3(plane_speed,0,0);
         }
@@ -51,7 +61,7 @@ public class planeControl : MonoBehaviour {
             gameObject.transform.position += new Vector3(0,-plane_speed,0);
         }
 
-        if (Time.time > nextFire) {
+        if (time > nextFire) {
             nextFire += fireRate;
             Vector3 pos_bullet_create = gameObject.transform.position + new Vector3(0, 0.6f, 0);
             bulletBhvCtrl.ShotBehaviorNormal(gameObject, bullet, pos_bullet_create);
@@ -85,5 +95,6 @@ public class planeControl : MonoBehaviour {
 
         gpMng.gameOverTitle.SetActive(true);
         gpMng.PlayerDead = true;
+
     }
 }

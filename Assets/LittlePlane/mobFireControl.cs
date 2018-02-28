@@ -12,6 +12,7 @@ public class mobFireControl : MonoBehaviour {
     private float nextFire = 0.0f;
     private int curAngle = 0;
     private int nextRange = 30;
+    private float time;
 
     gamePlayManager gamePlayMng;
     JsonData conf;
@@ -37,7 +38,8 @@ public class mobFireControl : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (Time.time > nextFire) {
+        time += Time.deltaTime;
+        if (time > nextFire) {
             nextFire += fireRate;
 
             if (gameObject.transform.name.Contains("mob_mid")) {
@@ -52,9 +54,8 @@ public class mobFireControl : MonoBehaviour {
 
             if (gameObject.transform.name.Contains("mob_boss")) {
                 bulletBhvCtrl.ShotBehaviorCirculor(gameObject, bullet, curAngle);
+                curAngle += nextRange;
             }
-
-            curAngle += nextRange;
         }
 
 	}

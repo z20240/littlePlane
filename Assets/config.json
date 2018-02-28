@@ -1,8 +1,8 @@
 {
-    "mob_create_freq" : 6,
+    "mob_create_freq" : 6.0,
     "boss_create_freq" : 10,
     "mob_bullet_speed" : 1.5,
-    "mob_bullet_offset" : 0.02,
+    "mob_bullet_offset" : 0.015,
     "mob_speed_offset" : 0.05,
     "mob" : {
         "mob_normal" : {

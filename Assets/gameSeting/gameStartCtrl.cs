@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 
 
 public class gameStartCtrl : MonoBehaviour {
-
 	void Start () {
-
         GetComponent<Button>().onClick.AddListener(() => {
             // Debug.Log(gameObject.transform.name);
             SceneManager.LoadScene("littlePlane");

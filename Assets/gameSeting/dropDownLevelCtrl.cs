@@ -9,7 +9,7 @@ public class dropDownLevelCtrl : MonoBehaviour {
     //显示选择的内容
     public Text Txt_CurrentNode;
 
-	void Start () {
+    void Awake() {
         //清空默认节点
         drondownLevel.options.Clear();
         //初始化

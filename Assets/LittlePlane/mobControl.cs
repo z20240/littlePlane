@@ -36,6 +36,7 @@ public class mobControl : MonoBehaviour {
             speed = (float)((double)conf["mob"]["mob_hard"]["speed"] + gamePlayMng.getStage()*(double)conf["mob_speed_offset"]);
         }
         if (gameObject.transform.name.Contains("mob_boss")) {
+            Debug.Log("生出Boss:" + gameObject.name);
             max_hp = hp = (int)conf["mob"]["mob_boss"] + gamePlayMng.getStage();
         }
 

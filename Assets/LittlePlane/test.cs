@@ -8,6 +8,7 @@ public class test : MonoBehaviour {
     private BulletBehaviorCtrl bulletBhvCtrl;
     private GameObject bulletBhvMng;
 
+    private float time;
     private float fireRate = 0.01f;
     private float nextFire = 0.0f;
     private int curAngle = 0;
@@ -22,10 +23,11 @@ public class test : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        time += Time.deltaTime;
         Debug.Log("gameObject" + gameObject);
         Debug.Log("bullet" + bullet);
 
-        if (Time.time > nextFire) {
+        if (time > nextFire) {
             nextFire += fireRate;
             Vector3 pos_bullet_create = gameObject.transform.position + new Vector3(0, 0.6f, 0);
             // bulletBhvCtrl.ShotBehaviorCircle(gameObject, bullet, 6);
